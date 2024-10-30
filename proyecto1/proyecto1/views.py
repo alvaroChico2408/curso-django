@@ -33,11 +33,10 @@ def fecha(request):
     
     return HttpResponse(documento)
 
-def calcula_edad(request, anyo):
+def calcula_edad(request, edad, anyo):
     
-    edad_actual= 18
     periodo= anyo-2024
-    edad_anyo= 18+periodo
+    edad_anyo= edad+periodo
     documento= """<html>
     <body>
     <h1>
