@@ -32,4 +32,21 @@ def fecha(request):
     </html>""" %fecha_actual
     
     return HttpResponse(documento)
+
+def calcula_edad(request, anyo):
+    
+    edad_actual= 18
+    periodo= anyo-2024
+    edad_anyo= 18+periodo
+    documento= """<html>
+    <body>
+    <h1>
+    En el año %s tendrás %s años.
+    </h1>
+    </body>
+    </html>""" %(anyo, edad_anyo)
+    
+    return HttpResponse(documento)
+    
+    
     
