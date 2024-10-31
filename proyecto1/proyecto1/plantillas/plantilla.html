@@ -3,6 +3,22 @@
         <h1>
             Hola mundo 2.0
         </h1>
+
+        {# Comentario duuuro #}
+        {% comment %} Comentario
+        duuurode 
+        varias
+        lineas
+        {% endcomment %}
+
+        <p>If nombre de persona</p>
+        {% if nombre_persona == 'pepeee'%}
+            <p> Holiwi si igual</p>
+
+        {% else %}
+            <p>El nombre {{nombre_persona}} no es igual a pepeee</p>
+        {%endif%}
+
         <h2>
             Hola soy {{nombre_persona.upper}} {{nombre_persona1.upper}}
         </h2>
@@ -11,6 +27,7 @@
         <p> La persona con la clase persona es: {{np}} {{ap}}</p>
         <p>lista: {{lista}}</p>
         <p>Elemento1: {{lista.0}}</p>
+
         <p>Bucle lista:</p>
         <p>
             <ul>
