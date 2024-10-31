@@ -4,12 +4,13 @@ from django.template import Template, Context
 
 def saludo(request): #Primera vista
     
+    fecha= datetime.datetime.now()
     nombre="pepeee"
     nombre1="holi"
     doc_externo= open("C:/Users/alvaro/Desktop/Curso Django/curso-django/proyecto1/proyecto1/plantillas/plantilla.html")
     plt= Template(doc_externo.read())
     doc_externo.close()
-    ctx= Context({"nombre_persona":nombre,"nombre_persona1":nombre1})
+    ctx= Context({"nombre_persona":nombre,"nombre_persona1":nombre1, "fecha":fecha})
     documento= plt.render(ctx)
     
     
