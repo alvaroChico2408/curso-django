@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 import datetime
 from django.template import Template, Context, loader
+from django.shortcuts import render
 
 class Persona(object):
     
@@ -17,19 +18,23 @@ def saludo(request): #Primera vista
     nombre="pepeee"
     nombre1="holi"
     
-    #Forma mala de abrir las plantillas
+    #Forma mala de abrir las plantillas (M)
     #doc_externo= open("C:/Users/alvaro/Desktop/Curso Django/curso-django/proyecto1/proyecto1/plantillas/plantilla.html")
     #plt= Template(doc_externo.read())
     #doc_externo.close()
     
-    doc_externo= loader.get_template('plantilla.html')
+    #Forma medio buena de abrir las plantillas (B)
+    #doc_externo= loader.get_template('plantilla.html')
     
+    #(M)
     #ctx= Context({"nombre_persona":nombre,"nombre_persona1":nombre1, "fecha":fecha,"np":persona.nombre,"ap":persona.apellido,"lista":lista,"lista_vacia":lista_vacia})
+    
     ctx= {"nombre_persona":nombre,"nombre_persona1":nombre1, "fecha":fecha,"np":persona.nombre,"ap":persona.apellido,"lista":lista,"lista_vacia":lista_vacia}
-    documento= doc_externo.render(ctx)
+    #(B)
+    #documento= doc_externo.render(ctx)
     
-    
-    return HttpResponse(documento)
+    #forma Muy buena
+    return render(request,'plantilla.html',ctx)
 def despedida(request): 
     
     return HttpResponse("Adiós mundo")
