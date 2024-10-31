@@ -15,18 +15,23 @@
         <p>
             <ul>
                 {% for elemento in lista %}
-
-                <li>{{elemento}}</li>
-
+                    <li>{{elemento}}</li>
                 {% endfor %}
-
+            </ul>
+        </p>
+        
+        <p>Bucle lista vacia:</p>
+        <p>
+            <ul>
+                {% if lista_vacia %} 
+                    {% for elemento in lista_vacia %}
+                        <li>{{elemento}}</li>
+                    {% endfor %}
+                {% else %}
+                    <p> No hay na</p>
+                {% endif %}
 
             </ul>
-
-
-
-
-
         </p>
     </body>
 </html>

@@ -11,6 +11,7 @@ class Persona(object):
 def saludo(request): #Primera vista
     
     lista=["a","al","el","de"]
+    lista_vacia=[]
     persona= Persona("Juan","pepe")
     fecha= datetime.datetime.now()
     nombre="pepeee"
@@ -18,7 +19,7 @@ def saludo(request): #Primera vista
     doc_externo= open("C:/Users/alvaro/Desktop/Curso Django/curso-django/proyecto1/proyecto1/plantillas/plantilla.html")
     plt= Template(doc_externo.read())
     doc_externo.close()
-    ctx= Context({"nombre_persona":nombre,"nombre_persona1":nombre1, "fecha":fecha,"np":persona.nombre,"ap":persona.apellido,"lista":lista})
+    ctx= Context({"nombre_persona":nombre,"nombre_persona1":nombre1, "fecha":fecha,"np":persona.nombre,"ap":persona.apellido,"lista":lista,"lista_vacia":lista_vacia})
     documento= plt.render(ctx)
     
     
