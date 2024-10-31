@@ -9,5 +9,24 @@
         <p> La fecha es: {{fecha}}</p>
         <p> La fecha bonita es: {{fecha.day}} / {{fecha.month}} / {{fecha.year}}</p>
         <p> La persona con la clase persona es: {{np}} {{ap}}</p>
+        <p>lista: {{lista}}</p>
+        <p>Elemento1: {{lista.0}}</p>
+        <p>Bucle lista:</p>
+        <p>
+            <ul>
+                {% for elemento in lista %}
+
+                <li>{{elemento}}</li>
+
+                {% endfor %}
+
+
+            </ul>
+
+
+
+
+
+        </p>
     </body>
 </html>
