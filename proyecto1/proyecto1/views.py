@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 import datetime
-from django.template import Template, Context
+from django.template import Template, Context, loader
 
 class Persona(object):
     
@@ -16,11 +16,17 @@ def saludo(request): #Primera vista
     fecha= datetime.datetime.now()
     nombre="pepeee"
     nombre1="holi"
-    doc_externo= open("C:/Users/alvaro/Desktop/Curso Django/curso-django/proyecto1/proyecto1/plantillas/plantilla.html")
-    plt= Template(doc_externo.read())
-    doc_externo.close()
-    ctx= Context({"nombre_persona":nombre,"nombre_persona1":nombre1, "fecha":fecha,"np":persona.nombre,"ap":persona.apellido,"lista":lista,"lista_vacia":lista_vacia})
-    documento= plt.render(ctx)
+    
+    #Forma mala de abrir las plantillas
+    #doc_externo= open("C:/Users/alvaro/Desktop/Curso Django/curso-django/proyecto1/proyecto1/plantillas/plantilla.html")
+    #plt= Template(doc_externo.read())
+    #doc_externo.close()
+    
+    doc_externo= loader.get_template('plantilla.html')
+    
+    #ctx= Context({"nombre_persona":nombre,"nombre_persona1":nombre1, "fecha":fecha,"np":persona.nombre,"ap":persona.apellido,"lista":lista,"lista_vacia":lista_vacia})
+    ctx= {"nombre_persona":nombre,"nombre_persona1":nombre1, "fecha":fecha,"np":persona.nombre,"ap":persona.apellido,"lista":lista,"lista_vacia":lista_vacia}
+    documento= doc_externo.render(ctx)
     
     
     return HttpResponse(documento)
